@@ -17,13 +17,11 @@
     quizzes: [],
     currentIndex: null,
     numberOfCorrects: null
-  }
+  };
 
   // HTMLのid値がセットされているDOMを取得する
-
-
+ 
   // ページの読み込みが完了したらクイズ情報を取得する
-
 
   // 「Restart」ボタンをクリックしたら再度クイズデータを取得する
 
