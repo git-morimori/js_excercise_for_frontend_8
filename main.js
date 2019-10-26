@@ -48,7 +48,21 @@
   //   - 無し
   // - 戻り値
   //   - 無し
+  function fetchQuizData() {
+    question.textContent = 'Now loading...';
+    result.textContent = '';
+    restartButton.style.display = 'none';
 
+    fetch(API_URL)
+      .then(response => response.json())
+      .then((data) => {
+        gameState.quizzes = data.results;
+        gameState.currentIndex = null;
+        gameState.numberOfCorrects = null;
+
+        setNextQuiz();
+      });
+  };
 
   // setNextQuiz関数を実装する
   // - 実現したいこと
