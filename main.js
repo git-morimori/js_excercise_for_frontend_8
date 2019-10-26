@@ -57,10 +57,10 @@
       .then(response => response.json())
       .then((data) => {
         gameState.quizzes = data.results;
-        gameState.currentIndex = null;
-        gameState.numberOfCorrects = null;
+        gameState.currentIndex = 0;
+        gameState.numberOfCorrects = 0;
 
-        setNextQuiz();
+        // setNextQuiz関数を実装したらここでsetNextQuiz関数を呼び出す
       });
   };
 
@@ -86,10 +86,6 @@
   //   - 無し
   // - 戻り値
   //   - 無し
-  function finishQuiz() {
-    result.textContent =  `${gameState.numberOfCorrects}/10 corrects`;
-    restartButton.style.display = 'block';
-  }
 
   // removeAllAnswers関数を実装する
   // - 実現したいこと
