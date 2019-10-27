@@ -26,7 +26,10 @@
   const restartButton = document.getElementById('restart-button');
 
   // ページの読み込みが完了したらクイズ情報を取得する
-
+  window.addEventListener('load', (event) => {
+    // ここでfetchQuizData関数を呼び出す
+  });
+  
   // 「Restart」ボタンをクリックしたら再度クイズデータを取得する
 
 
