@@ -27,7 +27,7 @@
 
   // ページの読み込みが完了したらクイズ情報を取得する
   window.addEventListener('load', (event) => {
-    // ここでfetchQuizData関数を呼び出す
+    fetchQuizData();
   });
   
   // 「Restart」ボタンをクリックしたら再度クイズデータを取得する
