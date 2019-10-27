@@ -86,7 +86,7 @@
   //   - 無し
   // - 戻り値
   //   - 無し
-  function finishQuuz() {
+  function finishQuiz() {
     result.textContent = `${gameState.numberOfCorrects}/10 corrects`;
     restartButton.style.display = 'block';
   }
