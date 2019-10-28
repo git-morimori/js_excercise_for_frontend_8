@@ -28,8 +28,9 @@
   // ページの読み込みが完了したらクイズ情報を取得する
 
   // 「Restart」ボタンをクリックしたら再度クイズデータを取得する
-
-
+  restartButton.addEventListener('click', (event) => {
+    fetchQuizData();
+  });
 
   // `fetchQuizData関数`を実装する
   // - 実現したいこと
@@ -98,7 +99,7 @@
   //   - 無し
   // - 戻り値
   //   - 無し
-
+  
 
   // makeQuiz関数を実装する
   // - 実現したいこと
