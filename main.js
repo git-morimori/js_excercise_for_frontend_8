@@ -135,7 +135,15 @@
   //   - array : 配列
   // - 戻り値
   //   - shffuledArray : シャッフル後の配列(引数の配列とは別の配列であることに注意する)
-
+  function shuffle(array) {
+    const shffuledArray = array.slice();
+    for (let i = shffuledArray.length - 1; i >= 0; i--) {
+      const rand = Math.floor(Math.random() * (i + 1));
+      [shffuledArray[i], shffulearray[rand]] = [shffulearray[rand], shffulearray[i]]
+    }
+    
+    return shffuledArray;
+  }
 
 
   // unescapeHTML関数を実装する
