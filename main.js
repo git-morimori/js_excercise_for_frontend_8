@@ -123,13 +123,13 @@
 
   // quizオブジェクトの中にあるcorrect_answer, incorrect_answersを結合して
   // 正解・不正解の解答をシャッフルする。
-  function bildAnswers(quiz) {
+  function buildAnswers(quiz) {
     const answers = [
       quiz.correct_answer,
       ...quiz.incorrect_answers
     ];
-    const shufflesAnswers = shuffle(answers);
-    return shufflesAnswers;
+    const shuffledAnswers = shuffle(answers);
+    return shuffledAnswers;
   }
 
 
