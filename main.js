@@ -29,7 +29,7 @@
   window.addEventListener('load', (event) => {
     fetchQuizData();
   });
-  
+
   // 「Restart」ボタンをクリックしたら再度クイズデータを取得する
   restartButton.addEventListener('click', (event) => {
     fetchQuizData();
@@ -102,7 +102,7 @@
   //   - 無し
   // - 戻り値
   //   - 無し
-  
+
 
   // makeQuiz関数を実装する
   // - 実現したいこと
@@ -123,6 +123,14 @@
 
   // quizオブジェクトの中にあるcorrect_answer, incorrect_answersを結合して
   // 正解・不正解の解答をシャッフルする。
+  function buildAnswers(quiz) {
+    const answers = [
+      quiz.correct_answer,
+      ...quiz.incorrect_answers
+    ];
+    const shuffledAnswers = shuffle(answers);
+    return shuffledAnswers;
+  }
 
 
   // `shuffle関数` を実装する
@@ -141,7 +149,7 @@
       const rand = Math.floor(Math.random() * (i + 1));
       [shffuledArray[i], shffulearray[rand]] = [shffulearray[rand], shffulearray[i]]
     }
-    
+
     return shffuledArray;
   }
 
@@ -158,10 +166,10 @@
   function unescapeHTML(str) {
     const div = document.createElement("div");
     div.innerHTML = str.replace(/</g, "&lt;")
-                       .replace(/>/g, "&gt;")
-                       .replace(/ /g, "&nbsp;")
-                       .replace(/\r/g, "&#13;")
-                       .replace(/\n/g, "&#10;");
+      .replace(/>/g, "&gt;")
+      .replace(/ /g, "&nbsp;")
+      .replace(/\r/g, "&#13;")
+      .replace(/\n/g, "&#10;");
     return div.textContent || div.innerText;
   }
 })();
