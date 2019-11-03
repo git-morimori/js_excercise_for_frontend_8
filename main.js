@@ -81,7 +81,6 @@
   // - 戻り値
   //   - 無し
 
-
   // finishQuiz関数を実装する
   // - 実現したいこと
   //   - 正答数を表示する(例: 4問正解したばあいは 「4/10 corrects」と表示する)
@@ -119,7 +118,34 @@
   //   - オブジェクト(クイズデータ1件)
   // - 戻り値無し
   //   - 無し
+  function makeQuiz(quiz) {
 
+    question.textContent = unescapeHTML(quiz.question);
+    const quizAnswers = buildAnswers(quiz);
+
+    quizAnswers.forEach((answer, index) => {
+
+      const unescapedAnswer = unescapeHTML(answer);
+      const answerButton = document.createElement('button');
+      answerButton.textContent = unescapedAnswer;
+
+      answerButton.addEventListener('click', (event) => {
+        const unescapedCorrectAnswer = unescapeHTML(quiz.correct_answer);
+
+        if (unescapedAnswer === unescapedCorrectAnswer) {
+          gameState.numberOfCorrects++;
+          alert('Correct answer!!');
+        } else {
+          alert(`Wrong answer... (The correct answer is "${unescapedCorrectAnswer}")`);
+        }
+        
+        gameState.currentIndex++;
+        // ここでsetNextQuiz関数を実行する
+      });
+
+      answers.appendChild(answerButton);
+    });
+  }
 
   // quizオブジェクトの中にあるcorrect_answer, incorrect_answersを結合して
   // 正解・不正解の解答をシャッフルする。
