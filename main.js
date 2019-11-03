@@ -81,7 +81,6 @@
   // - 戻り値
   //   - 無し
 
-
   // finishQuiz関数を実装する
   // - 実現したいこと
   //   - 正答数を表示する(例: 4問正解したばあいは 「4/10 corrects」と表示する)
@@ -120,6 +119,44 @@
   // - 戻り値無し
   //   - 無し
 
+  //解答した後の表示を制御する関数
+  function displayManagement() {
+
+    const currentIndex = gameState.currentIndex++;
+
+    if (currentIndex < 10) {
+      //ここでsetNextQuiz関数を実行
+    } else {
+      finishQuiz();
+    }
+  }
+
+  function makeQuiz(quiz) {
+
+    question.textContent = quiz.question;
+    const quizAnswers = buildAnswers(quiz);
+    const collectAnswer = quiz.correct_answer;
+
+    quizAnswers.forEach((answer, index) => {
+      const answerButton = document.createElement('button');
+      answerButton.textContent = answer;
+
+      if (answer === collectAnswer) {
+        answerButton.addEventListener('click', (event) => {
+          gameState.numberOfCorrects++;
+          alert('Correct answer!!');
+          displayManagement();
+        });
+      } else {
+        answerButton.addEventListener('click', (event) => {
+          alert(`Wrong answer... (The correct answer is "${collectAnswer}")`);
+          displayManagement();
+        });
+      }
+
+      answers.appendChild(answerButton);
+    })
+  }
 
   // quizオブジェクトの中にあるcorrect_answer, incorrect_answersを結合して
   // 正解・不正解の解答をシャッフルする。
