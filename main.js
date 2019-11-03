@@ -83,9 +83,7 @@
   function setNextQuiz() {
 
     question.textContent = '';
-    while(answers.firstChild) {
-      answers.removeChild(answers.firstChild);
-    }
+    //ここでremoveAllAnswers関数を実行する
 
     const currentIndex = gameState.currentIndex;
     const limitIndex = gameState.quizzes.length - 1;
