@@ -83,7 +83,7 @@
   function setNextQuiz() {
 
     question.textContent = '';
-    //ここでremoveAllAnswers関数を実行する
+    removeAllAnswers();
 
     const currentIndex = gameState.currentIndex;
 
