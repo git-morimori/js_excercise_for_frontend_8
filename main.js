@@ -120,31 +120,31 @@
   //   - 無し
   function makeQuiz(quiz) {
 
-    question.textContent = quiz.question;
+    question.textContent = unescapeHTML(quiz.question);
     const quizAnswers = buildAnswers(quiz);
-    const collectAnswer = quiz.correct_answer;
 
     quizAnswers.forEach((answer, index) => {
-      const answerButton = document.createElement('button');
-      answerButton.textContent = answer;
 
-      if (answer === collectAnswer) {
-        answerButton.addEventListener('click', (event) => {
+      const unescapedAnswer = unescapeHTML(answer);
+      const answerButton = document.createElement('button');
+      answerButton.textContent = unescapedAnswer;
+
+      answerButton.addEventListener('click', (event) => {
+        const unescapedCorrectAnswer = unescapeHTML(quiz.correct_answer);
+
+        if (unescapedAnswer === unescapedCorrectAnswer) {
           gameState.numberOfCorrects++;
           alert('Correct answer!!');
-          gameState.currentIndex++;
-          // ここでsetNextQuiz関数を実行する
-        });
-      } else {
-        answerButton.addEventListener('click', (event) => {
-          alert(`Wrong answer... (The correct answer is "${collectAnswer}")`);
-          gameState.currentIndex++;
-          // ここでsetNextQuiz関数を実行する
-        });
-      }
+        } else {
+          alert(`Wrong answer... (The correct answer is "${unescapedCorrectAnswer}")`);
+        }
+        
+        gameState.currentIndex++;
+        // ここでsetNextQuiz関数を実行する
+      });
 
       answers.appendChild(answerButton);
-    })
+    });
   }
 
   // quizオブジェクトの中にあるcorrect_answer, incorrect_answersを結合して
