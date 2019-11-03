@@ -86,11 +86,10 @@
     //ここでremoveAllAnswers関数を実行する
 
     const currentIndex = gameState.currentIndex;
-    const limitIndex = gameState.quizzes.length - 1;
 
-    if (currentIndex <= limitIndex) {
+    if (currentIndex < gameState.quizzes.length) {
       const quiz = gameState.quizzes[currentIndex];
-      //ここで makeQuiz(quiz) を実行する
+      makeQuiz(quiz);
     } else {
       finishQuiz();
     }
@@ -154,7 +153,7 @@
         } else {
           alert(`Wrong answer... (The correct answer is "${unescapedCorrectAnswer}")`);
         }
-        
+
         gameState.currentIndex++;
         // ここでsetNextQuiz関数を実行する
       });
