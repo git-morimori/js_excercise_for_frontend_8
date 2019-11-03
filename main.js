@@ -116,7 +116,11 @@
   //   - 無し
   // - 戻り値
   //   - 無し
-
+  function removeAllAnswers() {
+    while (answers.firstChild) {
+      answers.removeChild(answers.firstChild);
+    }    
+  }
 
   // makeQuiz関数を実装する
   // - 実現したいこと
