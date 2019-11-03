@@ -118,19 +118,6 @@
   //   - オブジェクト(クイズデータ1件)
   // - 戻り値無し
   //   - 無し
-
-  //解答した後の表示を制御する関数
-  function displayManagement() {
-
-    const currentIndex = gameState.currentIndex++;
-
-    if (currentIndex < 10) {
-      //ここでsetNextQuiz関数を実行
-    } else {
-      finishQuiz();
-    }
-  }
-
   function makeQuiz(quiz) {
 
     question.textContent = quiz.question;
@@ -145,12 +132,14 @@
         answerButton.addEventListener('click', (event) => {
           gameState.numberOfCorrects++;
           alert('Correct answer!!');
-          displayManagement();
+          gameState.currentIndex++;
+          // ここでsetNextQuiz関数を実行する
         });
       } else {
         answerButton.addEventListener('click', (event) => {
           alert(`Wrong answer... (The correct answer is "${collectAnswer}")`);
-          displayManagement();
+          gameState.currentIndex++;
+          // ここでsetNextQuiz関数を実行する
         });
       }
 
