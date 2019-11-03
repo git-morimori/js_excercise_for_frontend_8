@@ -95,7 +95,6 @@
     }
   }
 
-
   // finishQuiz関数を実装する
   // - 実現したいこと
   //   - 正答数を表示する(例: 4問正解したばあいは 「4/10 corrects」と表示する)
@@ -157,6 +156,7 @@
         } else {
           alert(`Wrong answer... (The correct answer is "${unescapedCorrectAnswer}")`);
         }
+        
 
         gameState.currentIndex++;
         // ここでsetNextQuiz関数を実行する
