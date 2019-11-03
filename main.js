@@ -80,6 +80,24 @@
   //   - 無し
   // - 戻り値
   //   - 無し
+  function setNextQuiz() {
+
+    question.textContent = '';
+    while(answers.firstChild) {
+      answers.removeChild(answers.firstChild);
+    }
+
+    const currentIndex = gameState.currentIndex;
+    const limitIndex = gameState.quizzes.length - 1;
+
+    if (currentIndex <= limitIndex) {
+      const quiz = gameState.quizzes[currentIndex];
+      //ここで makeQuiz(quiz) を実行する
+    } else {
+      finishQuiz();
+    }
+  }
+
 
 
   // finishQuiz関数を実装する
