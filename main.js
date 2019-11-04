@@ -64,7 +64,7 @@
         gameState.currentIndex = 0;
         gameState.numberOfCorrects = 0;
 
-        // setNextQuiz関数を実装したらここでsetNextQuiz関数を呼び出す
+        setNextQuiz();
       });
   };
 
@@ -156,10 +156,9 @@
         } else {
           alert(`Wrong answer... (The correct answer is "${unescapedCorrectAnswer}")`);
         }
-        
 
         gameState.currentIndex++;
-        // ここでsetNextQuiz関数を実行する
+        setNextQuiz();
       });
 
       answers.appendChild(answerButton);
