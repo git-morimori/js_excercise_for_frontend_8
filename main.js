@@ -64,7 +64,7 @@
         gameState.currentIndex = 0;
         gameState.numberOfCorrects = 0;
 
-        // setNextQuiz関数を実装したらここでsetNextQuiz関数を呼び出す
+        setNextQuiz();
       });
   };
 
@@ -144,10 +144,10 @@
     quizAnswers.forEach((answer, index) => {
 
       const unescapedAnswer = unescapeHTML(answer);
-      const answerButton = document.createElement('button');
-      answerButton.textContent = unescapedAnswer;
+      const answerList = document.createElement('li');
+      answerList.textContent = unescapedAnswer;
 
-      answerButton.addEventListener('click', (event) => {
+      answerList.addEventListener('click', (event) => {
         const unescapedCorrectAnswer = unescapeHTML(quiz.correct_answer);
 
         if (unescapedAnswer === unescapedCorrectAnswer) {
@@ -156,13 +156,12 @@
         } else {
           alert(`Wrong answer... (The correct answer is "${unescapedCorrectAnswer}")`);
         }
-        
 
         gameState.currentIndex++;
-        // ここでsetNextQuiz関数を実行する
+        setNextQuiz();
       });
 
-      answers.appendChild(answerButton);
+      answers.appendChild(answerList);
     });
   }
 
@@ -192,7 +191,7 @@
     const shffuledArray = array.slice();
     for (let i = shffuledArray.length - 1; i >= 0; i--) {
       const rand = Math.floor(Math.random() * (i + 1));
-      [shffuledArray[i], shffulearray[rand]] = [shffulearray[rand], shffulearray[i]]
+      [shffuledArray[i], shffuledArray[rand]] = [shffuledArray[rand], shffuledArray[i]]
     }
 
     return shffuledArray;
