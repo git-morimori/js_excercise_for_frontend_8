@@ -80,6 +80,20 @@
   //   - 無し
   // - 戻り値
   //   - 無し
+  function setNextQuiz() {
+
+    question.textContent = '';
+    removeAllAnswers();
+
+    const currentIndex = gameState.currentIndex;
+
+    if (currentIndex < gameState.quizzes.length) {
+      const quiz = gameState.quizzes[currentIndex];
+      makeQuiz(quiz);
+    } else {
+      finishQuiz();
+    }
+  }
 
   // finishQuiz関数を実装する
   // - 実現したいこと
@@ -143,6 +157,7 @@
           alert(`Wrong answer... (The correct answer is "${unescapedCorrectAnswer}")`);
         }
         
+
         gameState.currentIndex++;
         // ここでsetNextQuiz関数を実行する
       });
