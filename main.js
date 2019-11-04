@@ -191,7 +191,7 @@
     const shffuledArray = array.slice();
     for (let i = shffuledArray.length - 1; i >= 0; i--) {
       const rand = Math.floor(Math.random() * (i + 1));
-      [shffuledArray[i], shffulearray[rand]] = [shffulearray[rand], shffulearray[i]]
+      [shffuledArray[i], shffuledArray[rand]] = [shffuledArray[rand], shffuledArray[i]]
     }
 
     return shffuledArray;
