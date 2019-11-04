@@ -144,10 +144,10 @@
     quizAnswers.forEach((answer, index) => {
 
       const unescapedAnswer = unescapeHTML(answer);
-      const answerButton = document.createElement('button');
-      answerButton.textContent = unescapedAnswer;
+      const answerList = document.createElement('li');
+      answerList.textContent = unescapedAnswer;
 
-      answerButton.addEventListener('click', (event) => {
+      answerList.addEventListener('click', (event) => {
         const unescapedCorrectAnswer = unescapeHTML(quiz.correct_answer);
 
         if (unescapedAnswer === unescapedCorrectAnswer) {
@@ -161,7 +161,7 @@
         setNextQuiz();
       });
 
-      answers.appendChild(answerButton);
+      answers.appendChild(answerList);
     });
   }
 
